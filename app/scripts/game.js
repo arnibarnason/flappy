@@ -12,6 +12,8 @@ window.Game = (function() {
 		this.player = new window.Player(this.el.find('.Player'), this);
 		this.isPlaying = false;
 
+		this.obstacle1 = new window.Obstacle(this.el.find('.Obstacle.one'), this, 110);
+		this.obstacle2 = new window.Obstacle(this.el.find('.Obstacle.two'), this, 51);
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
 	};
@@ -33,6 +35,8 @@ window.Game = (function() {
 
 		// Update game entities.
 		this.player.onFrame(delta);
+		this.obstacle1.onFrame(delta);
+		this.obstacle2.onFrame(delta);
 
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
@@ -55,6 +59,8 @@ window.Game = (function() {
 	 */
 	Game.prototype.reset = function() {
 		this.player.reset();
+		this.obstacle1.reset();
+		this.obstacle2.reset();
 	};
 
 	/**

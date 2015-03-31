@@ -1,0 +1,22 @@
+
+.Obstacle {
+	position: absolute; 
+
+	.upper {
+		position: relative;
+		top: 0;
+		left: 0;
+		width: em(50px);
+		height: em(500px);
+		background-color: green;
+	}
+
+	.lower {
+		position: relative;
+		top: 0;
+		left: 0;
+		width: em(50px);
+		height: em(500px);
+		background-color: green;
+	}
+}

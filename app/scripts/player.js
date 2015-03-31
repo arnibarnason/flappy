@@ -5,7 +5,6 @@ window.Player = (function() {
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
-	var SPEED = 0; // * 10 pixels per second
 	var GRAVITY = 90;
 	var WIDTH = 5;
 	var HEIGHT = 5;
@@ -51,7 +50,7 @@ window.Player = (function() {
 	};
 
 	Player.prototype.jump = function(delta) {
-		this.velocity = -2000 * delta;
+		this.velocity = -1200 * delta;
 	};
 
 	return Player;
