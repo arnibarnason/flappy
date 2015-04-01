@@ -5,7 +5,7 @@ window.Player = (function() {
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
-	var GRAVITY = 90;
+	var GRAVITY = 150;
 	var WIDTH = 5;
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30;
@@ -29,12 +29,12 @@ window.Player = (function() {
 
 	Player.prototype.onFrame = function(delta) {
 		if (Controls.keys.space) {
-			this.jump(delta);
+			this.jump();
 		}
-		this.pos.y += delta * this.velocity * 2;
-		this.velocity += delta * GRAVITY;
-
 		this.checkCollisionWithBounds();
+
+		this.velocity += delta * GRAVITY;
+		this.pos.y += delta * this.velocity;
 
 		// Update UI
 		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
@@ -47,10 +47,28 @@ window.Player = (function() {
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
 			return this.game.gameover();
 		}
+
+		if (this.pos.x >= (this.game.obstacle1.pos.x - 5) &&
+			this.pos.x <= (this.game.obstacle1.pos.x + 3)) {
+
+			if ((this.pos.y < (this.game.obstacle1.yHole/10) ||
+			this.pos.y > ((this.game.obstacle1.yHole + 65)/10))){
+				return this.game.gameover();
+			}
+		}
+
+		if (this.pos.x >= (this.game.obstacle2.pos.x - 5) &&
+			this.pos.x <= (this.game.obstacle2.pos.x + 3)) {
+
+			if ((this.pos.y < (this.game.obstacle2.yHole/10) ||
+			this.pos.y > ((this.game.obstacle2.yHole + 65)/10))){
+				return this.game.gameover();
+			}
+		}
 	};
 
-	Player.prototype.jump = function(delta) {
-		this.velocity = -1200 * delta;
+	Player.prototype.jump = function() {
+		this.velocity = -45;
 	};
 
 	return Player;
