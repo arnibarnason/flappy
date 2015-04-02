@@ -21,6 +21,29 @@
     overflow: hidden;
 
     // Some graphics
-    background: url(http://s30.postimg.org/tycvlfagh/background.png) center repeat-x;
+    background: url(../background.jpg) center repeat-x;
     background-size: auto 100%;
+
+    -webkit-animation: slide 4s linear infinite;
+       -moz-animation: slide 4s linear;
+            animation: slide 4s linear infinite;
+            animation-direction: alternate;
+}
+
+@-webkit-keyframes slide
+{
+    0%   {background-position: 0 0;}
+    100% {background-position: 100px 0;}
+}
+
+@-moz-keyframes slide
+{
+    0%   {background-position: 0 0;}
+    100% {background-position: 100px 0;}
+}
+
+@keyframes slide
+{
+    0%   {background-position: 0 0;}
+    100% {background-position: 100px 0;}
 }

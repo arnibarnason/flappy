@@ -1,7 +1,7 @@
 window.Obstacle = (function() {
 	'use strict';
 
-	var HOLEWIDTH = 100;
+	var HOLEWIDTH = 200;
 	var INITIALPOSITION = 110;
 	var SPEED = 0.4;
 
@@ -11,8 +11,9 @@ window.Obstacle = (function() {
 		this.upper = this.el.find('.upper');
 		this.game = game;
 		this.startPos = start;
-		this.yHole = Math.floor((Math.random() * 450) + 10);
+		this.yHole = Math.floor((Math.random() * 300) + 10);
 		this.pos = {x: 0, y: 0};
+		this.holewidth = HOLEWIDTH;
 	};
 
 	Obstacle.prototype.reset = function() {
@@ -24,7 +25,7 @@ window.Obstacle = (function() {
 
 	Obstacle.prototype.repeat = function() {
 		this.pos.x = INITIALPOSITION;
-		this.yHole = Math.floor((Math.random() * 450) + 10);
+		this.yHole = Math.floor((Math.random() * 300) + 10);
 		this.upper.css('height', this.yHole);
 		this.lower.css('top', HOLEWIDTH);
 		this.lower.css('top', HOLEWIDTH);

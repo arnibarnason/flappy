@@ -44,7 +44,7 @@ window.Player = (function() {
 		if (this.pos.x < 0 ||
 			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
 			this.pos.y < 0 ||
-			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
+			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT - 7) {
 			return this.game.gameover();
 		}
 
@@ -52,7 +52,7 @@ window.Player = (function() {
 			this.pos.x <= (this.game.obstacle1.pos.x + 3)) {
 
 			if ((this.pos.y < (this.game.obstacle1.yHole/10) ||
-			this.pos.y > ((this.game.obstacle1.yHole + 65)/10))){
+			this.pos.y > ((this.game.obstacle1.yHole + this.game.obstacle2.holewidth - HEIGHT*10)/10))){
 				return this.game.gameover();
 			}
 		}
@@ -61,7 +61,7 @@ window.Player = (function() {
 			this.pos.x <= (this.game.obstacle2.pos.x + 3)) {
 
 			if ((this.pos.y < (this.game.obstacle2.yHole/10) ||
-			this.pos.y > ((this.game.obstacle2.yHole + 65)/10))){
+			this.pos.y > ((this.game.obstacle2.yHole + this.game.obstacle2.holewidth - HEIGHT*10)/10))){
 				return this.game.gameover();
 			}
 		}
