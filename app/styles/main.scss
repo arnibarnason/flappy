@@ -12,6 +12,11 @@ body {
     padding: 0.2em 0;
 }
 
+@font-face {
+    font-family: myFont;
+    src: url(../slkscr.ttf);
+}
+
 @import '_game-canvas';
 @import '_player';
 @import '_scoreboard';
