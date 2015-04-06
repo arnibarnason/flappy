@@ -1,7 +1,6 @@
 window.Obstacle = (function() {
 	'use strict';
 
-	var HOLEWIDTH = 200;
 	var INITIALPOSITION = 110;
 	var SPEED = 0.4;
 
@@ -13,22 +12,24 @@ window.Obstacle = (function() {
 		this.startPos = start;
 		this.yHole = Math.floor((Math.random() * 300) + 10);
 		this.pos = {x: 0, y: 0};
-		this.holewidth = HOLEWIDTH;
+		this.holewidth = parseInt($('input[name="difficulty"]:checked').val());
 	};
 
 	Obstacle.prototype.reset = function() {
 		this.pos.x = this.startPos;
+		this.holewidth = parseInt($('input[name="difficulty"]:checked').val());
+		this.yHole = Math.floor((Math.random() * 300) + 10);
 		this.upper.css('height', this.yHole);
-		this.lower.css('top', HOLEWIDTH);
-		this.lower.css('top', HOLEWIDTH);
+		this.lower.css('top', this.holewidth);
+		this.lower.css('top', this.holewidth);
 	};
 
 	Obstacle.prototype.repeat = function() {
 		this.pos.x = INITIALPOSITION;
 		this.yHole = Math.floor((Math.random() * 300) + 10);
 		this.upper.css('height', this.yHole);
-		this.lower.css('top', HOLEWIDTH);
-		this.lower.css('top', HOLEWIDTH);
+		this.lower.css('top', this.holewidth);
+		this.lower.css('top', this.holewidth);
 	};
 
 	Obstacle.prototype.onFrame = function() {

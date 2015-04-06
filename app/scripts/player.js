@@ -55,7 +55,8 @@ window.Player = (function() {
 		this.pos.y += delta * this.velocity;
 
 		// Update UI
-		this.el.css('transform', 'translate3d(' + this.pos.x + 'em, ' + this.pos.y + 'em, 0)');
+		this.el.css('transform', 'translate3d(' + this.pos.x + 'em, ' + this.pos.y + 'em, 0) rotateZ(' + this.velocity/2 + 'deg)');
+		//this.el.css('transform', 'rotateZ(' + 20 + 'deg)');
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
@@ -68,6 +69,8 @@ window.Player = (function() {
 				this.highScore = this.score;
 				$('#highScore').html(this.highScore);
 			}
+			var audioElem1 = document.getElementById('audioPlayer4');
+			audioElem1.play();
 			return this.game.gameover();
 		}
 
@@ -81,6 +84,8 @@ window.Player = (function() {
 					this.highScore = this.score;
 					$('#highScore').html(this.highScore);
 				}
+				var audioElem2 = document.getElementById('audioPlayer4');
+				audioElem2.play();
 				return this.game.gameover();
 			}
 		}
@@ -95,6 +100,8 @@ window.Player = (function() {
 					this.highScore = this.score;
 					$('#highScore').html(this.highScore);
 				}
+				var audioElem3 = document.getElementById('audioPlayer4');
+				audioElem3.play();
 				return this.game.gameover();
 			}
 		}

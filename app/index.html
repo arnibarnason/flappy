@@ -82,10 +82,28 @@
              functionality</p>
         </audio>
 
+        <audio id="audioPlayer4">
+             <!-- We declare multiple versions of the same song,
+             to ensure all browsers can play it -->
+             <source src="mammamia.ogg" type="audio/ogg" />
+             <!-- Note: if we just use the JavaScript API (see below),
+             we won't need the source elements -->
+             <!-- Finally we can add a message which will be displayed
+             if the browser doesn't support HTML5 audio -->
+             <p>Sorry, but your browser doesn't support this
+             functionality</p>
+        </audio>
 
-            <button onclick="document.getElementById('audioPlayer').muted=!document.getElementById('audioPlayer').muted; document.getElementById('audioPlayer2').muted=!document.getElementById('audioPlayer2').muted; document.getElementById('audioPlayer3').muted=!document.getElementById('audioPlayer3').muted">Mute/Unmute</button>
 
+            <button onclick="document.getElementById('audioPlayer').muted=!document.getElementById('audioPlayer').muted; document.getElementById('audioPlayer2').muted=!document.getElementById('audioPlayer2').muted; document.getElementById('audioPlayer3').muted=!document.getElementById('audioPlayer3').muted; document.getElementById('audioPlayer4').muted=!document.getElementById('audioPlayer4').muted">Mute/Unmute</button>
 
+        <form class="Scoreboard-diff">
+            <input type="radio" name="difficulty" value="300" checked>Easy
+            <br>
+            <input type="radio" name="difficulty" value="200">Medium
+            <br>
+            <input type="radio" name="difficulty" value="150">Hard
+        </form>
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
