@@ -1,0 +1,32 @@
+.Background {
+    position: absolute;
+    background: url(../background3.png);
+    background-size: auto 100%;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 300%;
+
+    transform: translate3d(0, 0, 0);
+    -webkit-animation: slideBackground 22s linear infinite;
+       -moz-animation: slideBackground 22s linear;
+            animation: slideBackground 22s linear infinite;
+}
+
+@-webkit-keyframes slideBackground
+{
+    0%   {left: 0;}
+    100% {left: -625px;}//-625px;}
+}
+
+@-moz-keyframes slideBackground
+{
+    0%   {left: 0;}
+    100% {left: -625px;}//-625px;}
+}
+
+@keyframes slideBackground
+{
+    0%   {left: 0;}
+    100% {left: -625px;}//-625px;}
+}

@@ -37,7 +37,7 @@ window.Obstacle = (function() {
 		}
 		this.pos.x -= SPEED;
 
-		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + 0 + 'em)');
+		this.el.css('transform', 'translate3d(' + this.pos.x + 'em, ' + 0 + 'em, 0)');
 	};
 
 	return Obstacle;

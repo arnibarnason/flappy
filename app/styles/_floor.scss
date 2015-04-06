@@ -1,0 +1,32 @@
+.floor {
+	position: absolute;
+	bottom: 0;
+	height: 10%;
+	width: 100%;
+	background: url(../fire.png);
+	background-size: 1024px, 100%;
+	color: red;
+
+    transform: translate3d(0, 0, 0);
+	-webkit-animation: slide 2s linear infinite;
+	       -moz-animation: slide 2s linear;
+	            animation: slide 2s linear infinite;
+}
+
+@-webkit-keyframes slide
+{
+    0%   {background-position: 128px 0;}
+    100% {background-position: 0 0;}
+}
+
+@-moz-keyframes slide
+{
+    0%   {background-position: 128px 0;}
+    100% {background-position: 0 0;}
+}
+
+@keyframes slide
+{
+    0%   {background-position: 128px 0;}
+    100% {background-position: 0 0;}
+}

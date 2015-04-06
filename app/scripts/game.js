@@ -16,6 +16,8 @@ window.Game = (function() {
 		this.obstacle2 = new window.Obstacle(this.el.find('.Obstacle.two'), this, 51);
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
+		var audioElem = document.getElementById('audioPlayer2');
+		audioElem.play();
 	};
 
 	/**
@@ -37,6 +39,8 @@ window.Game = (function() {
 		this.player.onFrame(delta);
 		this.obstacle1.onFrame(delta);
 		this.obstacle2.onFrame(delta);
+
+		this.el.css('transform', 'translateZ(0)');
 
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);

@@ -11,6 +11,7 @@ window.Player = (function() {
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
 	var WAIT = true;
+	var HASJUMPED = true;
 
 	var Player = function(el, game) {
 		this.el = el;
@@ -33,35 +34,35 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
-		if (Controls.keys.space) {
+		if (HASJUMPED && Controls.keys.space) {
 			this.jump();
 		}
 		this.checkCollisionWithBounds();
 
-		if (WAIT && (this.game.obstacle1.pos.x <= 30 && this.game.obstacle1.pos.x >= 28)) {
+		if (WAIT && (this.game.obstacle1.pos.x <= 30 && this.game.obstacle1.pos.x >= 25)) {
 			this.score++;
 			$('#score').html(this.score);
 			WAIT = false;
-			setTimeout(function () {WAIT = true;}, 3000);
-		} else if (WAIT && (this.game.obstacle2.pos.x <= 30 && this.game.obstacle2.pos.x >= 28)){
+			setTimeout(function () {WAIT = true;}, 500);
+		} else if (WAIT && (this.game.obstacle2.pos.x <= 30 && this.game.obstacle2.pos.x >= 25)){
 			this.score++;
 			$('#score').html(this.score);
 			WAIT = false;
-			setTimeout(function () {WAIT = true;}, 3000);
+			setTimeout(function () {WAIT = true;}, 500);
 		}
 
 		this.velocity += delta * GRAVITY;
 		this.pos.y += delta * this.velocity;
 
 		// Update UI
-		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.el.css('transform', 'translate3d(' + this.pos.x + 'em, ' + this.pos.y + 'em, 0)');
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
 		if (this.pos.x < 0 ||
 			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
 			this.pos.y < 0 ||
-			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT - 7) {
+			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT - 5) {
 
 			if (this.score > this.highScore) {
 				this.highScore = this.score;
@@ -100,7 +101,12 @@ window.Player = (function() {
 	};
 
 	Player.prototype.jump = function() {
-		this.velocity = -45;
+		this.velocity = -65;
+		HASJUMPED = false;
+		var audioElem = document.getElementById('audioPlayer');
+		audioElem.play();
+		setTimeout(function () {HASJUMPED = true;}, 300);
+
 	};
 
 	return Player;

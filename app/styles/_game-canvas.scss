@@ -19,31 +19,30 @@
 
     // Don't draw outside this box.
     overflow: hidden;
-
+}
     // Some graphics
-    background: url(../background.jpg) center repeat-x;
-    background-size: auto 100%;
+//     background: url(../background3.png) center repeat-x;
+//     background-size: auto 100%;
 
-    -webkit-animation: slide 4s linear infinite;
-       -moz-animation: slide 4s linear;
-            animation: slide 4s linear infinite;
-            animation-direction: alternate;
-}
+//     -webkit-animation: slideBackground 22s linear infinite;
+//        -moz-animation: slideBackground 22s linear;
+//             animation: slideBackground 22s linear infinite;
+// }
 
-@-webkit-keyframes slide
-{
-    0%   {background-position: 0 0;}
-    100% {background-position: 100px 0;}
-}
+// @-webkit-keyframes slideBackground
+// {
+//     0%   {background-position: 0 0;}
+//     100% {background-position: -625px 0;}
+// }
 
-@-moz-keyframes slide
-{
-    0%   {background-position: 0 0;}
-    100% {background-position: 100px 0;}
-}
+// @-moz-keyframes slideBackground
+// {
+//     0%   {background-position: 0 0;}
+//     100% {background-position: -625px 0;}
+// }
 
-@keyframes slide
-{
-    0%   {background-position: 0 0;}
-    100% {background-position: 100px 0;}
-}
+// @keyframes slideBackground
+// {
+//     0%   {background-position: 0 0;}
+//     100% {background-position: -625px 0;}
+// }
